@@ -1,5 +1,5 @@
 {
-  "name": "rc-picker",
+  "name": "@jnoodle/rc-picker",
   "version": "1.15.0",
   "description": "React date & time picker",
   "keywords": [
@@ -16,13 +16,13 @@
     "lib",
     "dist"
   ],
-  "homepage": "https://react-component.github.io/picker",
+  "homepage": "https://jnoodle.github.io/picker",
   "repository": {
     "type": "git",
-    "url": "git@github.com:react-component/picker.git"
+    "url": "git@github.com:jnoodle/picker.git"
   },
   "bugs": {
-    "url": "http://github.com/react-component/picker/issues"
+    "url": "http://github.com/jnoodle/picker/issues"
   },
   "license": "MIT",
   "scripts": {

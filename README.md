@@ -1,4 +1,4 @@
-# rc-picker 
+# @jnoodle/rc-picker 
 
 [![NPM version][npm-image]][npm-url]
 [![build status][circleci-image]][circleci-url]
@@ -8,8 +8,8 @@
 [![npm download][download-image]][download-url]
 [![bundle size][bundlephobia-image]][bundlephobia-url]
 
-[npm-image]: http://img.shields.io/npm/v/rc-picker.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/rc-picker
+[npm-image]: http://img.shields.io/npm/v/@jnoodle/rc-picker.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/@jnoodle/rc-picker
 [circleci-image]: https://img.shields.io/circleci/build/github/react-component/picker/master?style=flat-square
 [circleci-url]: https://circleci.com/gh/react-component/picker
 [codecov-image]: https://img.shields.io/codecov/c/github/react-component/picker/master.svg?style=flat-square
@@ -18,24 +18,24 @@
 [david-image]: https://david-dm.org/react-component/picker/status.svg?style=flat-square
 [david-dev-url]: https://david-dm.org/react-component/picker?type=dev
 [david-dev-image]: https://david-dm.org/react-component/picker/dev-status.svg?style=flat-square
-[download-image]: https://img.shields.io/npm/dm/rc-picker.svg?style=flat-square
-[download-url]: https://npmjs.org/package/rc-picker
-[bundlephobia-url]: https://bundlephobia.com/result?p=rc-picker
-[bundlephobia-image]: https://badgen.net/bundlephobia/minzip/rc-picker
+[download-image]: https://img.shields.io/npm/dm/@jnoodle/rc-picker.svg?style=flat-square
+[download-url]: https://npmjs.org/package/@jnoodle/rc-picker
+[bundlephobia-url]: https://bundlephobia.com/result?p=@jnoodle/rc-picker
+[bundlephobia-image]: https://badgen.net/bundlephobia/minzip/@jnoodle/rc-picker
 
 ## Live Demo
 
-https://react-component.github.io/picker/
+https://jnoodle.github.io/picker/
 
 ## Install
 
-[![rc-picker](https://nodei.co/npm/rc-picker.png)](https://npmjs.org/package/rc-picker)
+[![@jnoodle/rc-picker](https://nodei.co/npm/@jnoodle/rc-picker.png)](https://npmjs.org/package/@jnoodle/rc-picker)
 
 ## Usage
 
 ```js
-import Picker from 'rc-picker';
-import 'rc-picker/assets/index.css';
+import Picker from '@jnoodle/rc-picker';
+import '@jnoodle/rc-picker/assets/index.css';
 import { render } from 'react-dom';
 
 render(<Picker />, mountNode);
@@ -157,4 +157,4 @@ npm start
 
 ## License
 
-rc-picker is released under the MIT license.
+@jnoodle/rc-picker is released under the MIT license.
