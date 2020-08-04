@@ -246,7 +246,7 @@ function InnerPicker<DateType>(props: PickerProps<DateType>) {
   };
 
   const triggerOpen = (newOpen: boolean) => {
-    if (disabled && newOpen) {
+    if ((disabled || inputReadOnly) && newOpen) {
       return;
     }
 

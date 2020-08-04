@@ -348,6 +348,7 @@ function InnerRangePicker<DateType>(props: RangePickerProps<DateType>) {
   const triggerRef = React.useRef<any>();
 
   function triggerOpen(newOpen: boolean, index: 0 | 1) {
+    if (inputReadOnly) return;
     if (newOpen) {
       clearTimeout(triggerRef.current);
       openRecordsRef.current[index] = true;
