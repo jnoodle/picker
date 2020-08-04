@@ -43,6 +43,8 @@ export default function PanelBody<DateType>({
 
   const cellPrefixCls = `${prefixCls}-cell`;
 
+  const tooltipRef = React.createRef() as any;
+
   // =============================== Body ===============================
   const rows: React.ReactNode[] = [];
 
@@ -80,6 +82,10 @@ export default function PanelBody<DateType>({
             if (!disabled && onDateMouseEnter) {
               onDateMouseEnter(currentDate);
             }
+            // TODO add tooltip feature
+            // tooltipRef.current.style.left = (e.currentTarget.offsetLeft + e.currentTarget.offsetWidth / 2) + 'px';
+            // tooltipRef.current.style.top = (e.currentTarget.offsetTop) + 'px';
+            // tooltipRef.current.innerHTML = `<span>${currentDate}</span>`
           }}
           onMouseLeave={() => {
             if (!disabled && onDateMouseLeave) {
@@ -105,6 +111,7 @@ export default function PanelBody<DateType>({
 
   return (
     <div className={`${prefixCls}-body`}>
+      <div className={`${prefixCls}-tooltip`} ref={tooltipRef} />
       <table className={`${prefixCls}-content`}>
         {headerCells && (
           <thead>
