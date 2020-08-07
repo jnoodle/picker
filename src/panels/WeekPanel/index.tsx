@@ -12,10 +12,7 @@ function WeekPanel<DateType>(props: WeekPanelProps<DateType>) {
   // Render additional column
   const cellPrefixCls = `${prefixCls}-cell`;
   const prefixColumn = (date: DateType) => (
-    <td
-      key="week"
-      className={classNames(cellPrefixCls, `${cellPrefixCls}-week`)}
-    >
+    <td key="week" className={classNames(cellPrefixCls, `${cellPrefixCls}-week`)}>
       {generateConfig.locale.getWeek(locale.locale, date)}
     </td>
   );
@@ -24,13 +21,10 @@ function WeekPanel<DateType>(props: WeekPanelProps<DateType>) {
   const rowPrefixCls = `${prefixCls}-week-panel-row`;
   const rowClassName = (date: DateType) =>
     classNames(rowPrefixCls, {
-      [`${rowPrefixCls}-selected`]: isSameWeek(
-        generateConfig,
-        locale.locale,
-        value,
-        date,
-      ),
+      [`${rowPrefixCls}-selected`]: isSameWeek(generateConfig, locale.locale, value, date),
     });
+
+  // TODO fix range start row selected style
 
   return (
     <DatePanel
