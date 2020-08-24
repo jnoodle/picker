@@ -1,6 +1,6 @@
 {
   "name": "@jnoodle/rc-picker",
-  "version": "2.0.1",
+  "version": "2.0.6",
   "description": "React date & time picker",
   "keywords": [
     "react",
@@ -41,7 +41,7 @@
     "@babel/runtime": "^7.10.1",
     "classnames": "^2.2.1",
     "date-fns": "^2.15.0",
-    "dayjs": "^1.8.30",
+    "dayjs": "1.8.30",
     "moment": "^2.24.0",
     "rc-trigger": "^4.0.0",
     "rc-util": "^5.0.1",

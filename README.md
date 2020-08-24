@@ -1,5 +1,7 @@
 # @jnoodle/rc-picker 
 
+Function enhanced and bug fixed [react-component/picker](https://github.com/react-component/picker)
+
 [![NPM version][npm-image]][npm-url]
 [![build status][circleci-image]][circleci-url]
 [![Codecov][codecov-image]][codecov-url]
