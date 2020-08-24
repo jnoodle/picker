@@ -15,7 +15,7 @@ dayjs.extend(localeData);
 dayjs.extend(weekOfYear);
 dayjs.extend(weekYear);
 
-dayjs.extend((_, c) => {
+dayjs.extend((o, c) => {
   // todo support Wo (ISO week)
   const proto = c.prototype;
   const oldFormat = proto.format;
@@ -33,7 +33,7 @@ const localeMap: IlocaleMapObject = {
   zh_TW: 'zh-tw',
 };
 
-const parseLocale = (locale: any) => {
+const parseLocale = (locale: string) => {
   const mapLocale = localeMap[locale];
   return mapLocale || locale.split('_')[0];
 };
