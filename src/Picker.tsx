@@ -353,7 +353,7 @@ function InnerPicker<DateType>(props: PickerProps<DateType>) {
   }
 
   // ============================= Panel =============================
-  const panelProps = {
+  const panelProps: any = {
     // Remove `picker` & `format` here since TimePicker is little different with other panel
     ...(props as Omit<MergedPickerProps<DateType>, 'picker' | 'format'>),
     className: undefined,

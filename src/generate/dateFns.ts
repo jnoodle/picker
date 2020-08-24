@@ -65,17 +65,21 @@ const generateConfig: GenerateConfig<Date> = {
 
   locale: {
     getWeekFirstDay: locale => {
+      // @ts-ignore
       const clone = Locale[dealLocal(locale)];
       return clone.options.weekStartsOn;
     },
     getWeek: (locale, date) => {
+      // @ts-ignore
       return getWeek(date, { locale: Locale[dealLocal(locale)] });
     },
     format: (locale, date, format) => {
       if (!isValid(date)) {
         return null;
       }
+      // @ts-ignore
       return formatDate(date, localeParse(format), {
+        // @ts-ignore
         locale: Locale[dealLocal(locale)],
       });
     },
@@ -84,6 +88,7 @@ const generateConfig: GenerateConfig<Date> = {
         const format = localeParse(formats[i]);
         const formatText = text;
         const date = parseDate(formatText, format, new Date(), {
+          // @ts-ignore
           locale: Locale[dealLocal(locale)],
         });
         if (isValid(date)) {
