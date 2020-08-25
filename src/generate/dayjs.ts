@@ -6,7 +6,9 @@ import weekOfYear from 'dayjs/plugin/weekOfYear';
 import weekYear from 'dayjs/plugin/weekYear';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import updateLocale from 'dayjs/plugin/updateLocale';
 import { GenerateConfig } from '.';
+import 'dayjs/locale/zh-cn';
 
 dayjs.extend(customParseFormat);
 dayjs.extend(advancedFormat);
@@ -14,6 +16,7 @@ dayjs.extend(weekday);
 dayjs.extend(localeData);
 dayjs.extend(weekOfYear);
 dayjs.extend(weekYear);
+dayjs.extend(updateLocale);
 
 dayjs.extend((o, c) => {
   // todo support Wo (ISO week)

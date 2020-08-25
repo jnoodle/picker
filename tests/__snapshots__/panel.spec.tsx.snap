@@ -146,6 +146,9 @@ exports[`Picker.Panel should render correctly in rtl 1`] = `
     <div
       class="rc-picker-body"
     >
+      <div
+        class="rc-picker-tooltip"
+      />
       <table
         class="rc-picker-content"
       >
@@ -237,7 +240,7 @@ exports[`Picker.Panel should render correctly in rtl 1`] = `
               </div>
             </td>
             <td
-              class="rc-picker-cell rc-picker-cell-in-view"
+              class="rc-picker-cell rc-picker-cell-in-view rc-picker-cell-range-edge-start"
               title="1990-09-01"
             >
               <div
@@ -537,7 +540,7 @@ exports[`Picker.Panel should render correctly in rtl 1`] = `
           </tr>
           <tr>
             <td
-              class="rc-picker-cell rc-picker-cell-in-view"
+              class="rc-picker-cell rc-picker-cell-in-view rc-picker-cell-range-edge-end"
               title="1990-09-30"
             >
               <div

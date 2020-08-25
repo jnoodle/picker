@@ -1,8 +1,9 @@
 import React from 'react';
 import { mount as originMount, ReactWrapper } from 'enzyme';
-import moment, { Moment, unitOfTime } from 'moment';
+// import moment, { Moment, unitOfTime } from 'moment';
+import dayjs, { Dayjs as Moment, unitOfTime } from 'dayjs';
 import Picker, { PickerProps, PickerPanel } from '../../src';
-import momentGenerateConfig from '../../src/generate/moment';
+import generateConfig from '../../src/generate/dayjs';
 import enUS from '../../src/locale/en_US';
 import { PickerBaseProps, PickerDateProps, PickerTimeProps } from '../../src/Picker';
 import {
@@ -36,7 +37,7 @@ export const mount = originMount as (...args: Parameters<typeof originMount>) =>
 export function getMoment(str: string): Moment {
   const formatList = [FULL_FORMAT, 'YYYY-MM-DD', 'HH:mm:ss', 'YYYY'];
   for (let i = 0; i < formatList.length; i += 1) {
-    const date = moment(str, formatList[i], true);
+    const date = dayjs(str, formatList[i], true);
     if (date.isValid()) {
       return date;
     }
@@ -75,7 +76,7 @@ export class MomentPicker extends React.Component<MomentPickerProps> {
   render() {
     return (
       <Picker<Moment>
-        generateConfig={momentGenerateConfig}
+        generateConfig={generateConfig}
         locale={enUS}
         ref={this.pickerRef}
         {...this.props}
@@ -91,7 +92,7 @@ export type MomentPickerPanelProps =
   | InjectDefaultProps<PickerPanelTimeProps<Moment>>;
 
 export const MomentPickerPanel = (props: MomentPickerPanelProps) => (
-  <PickerPanel<Moment> generateConfig={momentGenerateConfig} locale={enUS} {...props} />
+  <PickerPanel<Moment> generateConfig={generateConfig} locale={enUS} {...props} />
 );
 
 // Moment Range Picker
@@ -106,7 +107,7 @@ export class MomentRangePicker extends React.Component<MomentRangePickerProps> {
   render() {
     return (
       <RangePicker<Moment>
-        generateConfig={momentGenerateConfig}
+        generateConfig={generateConfig}
         locale={enUS}
         ref={this.rangePickerRef}
         {...this.props}

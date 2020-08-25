@@ -1,4 +1,4 @@
-import momentGenerateConfig from '../src/generate/moment';
+import generateConfig from '../src/generate/dayjs';
 import { getLowerBoundTime, setTime } from '../src/utils/timeUtil';
 import { toArray } from '../src/utils/miscUtil';
 import { isSameTime, isSameDecade } from '../src/utils/dateUtil';
@@ -15,19 +15,19 @@ describe('Picker.Util', () => {
   // Time is only for time
   it('isSameTime', () => {
     expect(
-      isSameTime(momentGenerateConfig, getMoment('2000-01-01'), getMoment('1989-11-28')),
+      isSameTime(generateConfig, getMoment('2000-01-01'), getMoment('1989-11-28')),
     ).toBeTruthy();
 
-    expect(isSameTime(momentGenerateConfig, null, getMoment('1989-11-28'))).toBeFalsy();
+    expect(isSameTime(generateConfig, null, getMoment('1989-11-28'))).toBeFalsy();
 
-    expect(isSameTime(momentGenerateConfig, null, null)).toBeTruthy();
+    expect(isSameTime(generateConfig, null, null)).toBeTruthy();
   });
 
   it('isSameDecade', () => {
-    expect(isSameDecade(momentGenerateConfig, null, null)).toBeTruthy();
-    expect(isSameDecade(momentGenerateConfig, getMoment('2000-01-02'), null)).toBeFalsy();
+    expect(isSameDecade(generateConfig, null, null)).toBeTruthy();
+    expect(isSameDecade(generateConfig, getMoment('2000-01-02'), null)).toBeFalsy();
     expect(
-      isSameDecade(momentGenerateConfig, getMoment('1995-01-01'), getMoment('1999-01-01')),
+      isSameDecade(generateConfig, getMoment('1995-01-01'), getMoment('1999-01-01')),
     ).toBeTruthy();
   });
 
@@ -58,8 +58,8 @@ describe('Picker.Util', () => {
   describe('setTime', () => {
     expect(
       isSameTime(
-        momentGenerateConfig,
-        setTime(momentGenerateConfig, getMoment('1995-01-01 00:00:00'), 8, 7, 6),
+        generateConfig,
+        setTime(generateConfig, getMoment('1995-01-01 00:00:00'), 8, 7, 6),
         getMoment('1995-01-01 08:07:06'),
       ),
     ).toBeTruthy();

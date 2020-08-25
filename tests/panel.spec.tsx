@@ -1,11 +1,14 @@
 import React from 'react';
 import MockDate from 'mockdate';
-import moment from 'moment';
+// import moment from 'moment';
+import dayjs from 'dayjs';
 import { resetWarned } from 'rc-util/lib/warning';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import { mount, getMoment, isSame, MomentPickerPanel } from './util/commonUtil';
 import zhCN from '../src/locale/zh_CN';
 import enUS from '../src/locale/en_US';
+
+import 'dayjs/locale/zh-cn';
 
 describe('Picker.Panel', () => {
   beforeAll(() => {
@@ -457,7 +460,7 @@ describe('Picker.Panel', () => {
     resetWarned();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const invalidateDate = moment('notValidate', 'YYYY', true);
+    const invalidateDate = dayjs('notValidate', 'YYYY', true);
     mount(<MomentPickerPanel value={invalidateDate} />);
     expect(errSpy).toHaveBeenCalledWith('Warning: Invalidate date pass to `value`.');
 
@@ -540,10 +543,10 @@ describe('Picker.Panel', () => {
     );
 
     it('update firstDayOfWeek', () => {
-      const defaultFirstDay = moment(enUS.locale)
+      const defaultFirstDay = dayjs(enUS.locale)
         .localeData()
         .firstDayOfWeek();
-      moment.updateLocale(enUS.locale, {
+      dayjs.updateLocale(enUS.locale, {
         week: {
           dow: 5,
         } as any,
@@ -559,9 +562,9 @@ describe('Picker.Panel', () => {
           .find('td')
           .first()
           .text(),
-      ).toEqual('27');
+      ).toEqual('29');
 
-      moment.updateLocale(enUS.locale, {
+      dayjs.updateLocale(enUS.locale, {
         week: {
           dow: defaultFirstDay,
         } as any,
