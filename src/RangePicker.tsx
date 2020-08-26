@@ -706,6 +706,12 @@ function InnerRangePicker<DateType>(props: RangePickerProps<DateType>) {
           endInputRef.current.blur();
         }
       },
+      setValue: val => {
+        triggerChange(val as RangeValue<DateType>, null);
+      },
+      getValue: () => {
+        return selectedValue;
+      },
     };
   }
 
@@ -1118,7 +1124,7 @@ function InnerRangePicker<DateType>(props: RangePickerProps<DateType>) {
 
 // Wrap with class component to enable pass generic with instance method
 class RangePicker<DateType> extends React.Component<RangePickerProps<DateType>> {
-  pickerRef = React.createRef<PickerRefConfig>();
+  pickerRef = React.createRef<PickerRefConfig<DateType>>();
 
   focus = () => {
     if (this.pickerRef.current) {
@@ -1132,11 +1138,24 @@ class RangePicker<DateType> extends React.Component<RangePickerProps<DateType>> 
     }
   };
 
+  setValue = val => {
+    if (this.pickerRef.current) {
+      this.pickerRef.current.setValue(val);
+    }
+  };
+
+  getValue = () => {
+    if (this.pickerRef.current) {
+      return this.pickerRef.current.getValue();
+    }
+    return null;
+  };
+
   render() {
     return (
       <InnerRangePicker<DateType>
         {...this.props}
-        pickerRef={this.pickerRef as React.MutableRefObject<PickerRefConfig>}
+        pickerRef={this.pickerRef as React.MutableRefObject<PickerRefConfig<DateType>>}
       />
     );
   }

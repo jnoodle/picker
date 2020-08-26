@@ -96,6 +96,8 @@ export default () => {
             onClick={() => {
               if (weekRef.current) {
                 weekRef.current.focus();
+                weekRef.current.setValue(dayjs('2020-08-28 01:02:03'));
+                console.info(weekRef.current.getValue());
               }
             }}
           >

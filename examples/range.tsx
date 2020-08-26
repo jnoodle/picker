@@ -1,13 +1,15 @@
 import React from 'react';
-import moment, { Moment } from 'moment';
+// import moment, { Moment } from 'moment';
+import dayjs, { Dayjs as Moment } from 'dayjs';
 import RangePicker from '../src/RangePicker';
-import momentGenerateConfig from '../src/generate/moment';
+// import momentGenerateConfig from '../src/generate/moment';
+import momentGenerateConfig from '../src/generate/dayjs';
 import zhCN from '../src/locale/zh_CN';
 import '../assets/index.less';
 import './common.less';
 
-const defaultStartValue = moment('2019-09-03 05:02:03');
-const defaultEndValue = moment('2019-11-28 01:02:03');
+const defaultStartValue = dayjs('2019-09-03 05:02:03');
+const defaultEndValue = dayjs('2019-11-28 01:02:03');
 
 function formatDate(date: Moment | null) {
   return date ? date.format('YYYY-MM-DD HH:mm:ss') : 'null';
@@ -53,7 +55,7 @@ export default () => {
             locale={zhCN}
             allowClear
             ref={rangePickerRef}
-            defaultValue={[moment('1990-09-03'), moment('1989-11-28')]}
+            defaultValue={[dayjs('1990-09-03'), dayjs('1989-11-28')]}
             clearIcon={<span>X</span>}
             suffixIcon={<span>O</span>}
           />
@@ -65,7 +67,7 @@ export default () => {
             showTime
             style={{ width: 700 }}
             ranges={{
-              ranges: [moment(), moment().add(10, 'day')],
+              ranges: [dayjs(), dayjs().add(10, 'day')],
             }}
             onOk={dates => {
               console.log('OK!!!', dates);
@@ -78,7 +80,7 @@ export default () => {
             allowClear
             picker="time"
             ranges={{
-              test: [moment(), moment().add(1, 'hour')],
+              test: [dayjs(), dayjs().add(1, 'hour')],
             }}
           />
         </div>
@@ -95,6 +97,11 @@ export default () => {
           <button
             type="button"
             onClick={() => {
+              rangePickerRef.current!.setValue([
+                dayjs('2020-11-28 01:02:03'),
+                dayjs('2020-11-29 01:02:03'),
+              ]);
+              console.info(rangePickerRef.current!.getValue());
               rangePickerRef.current!.focus();
             }}
           >

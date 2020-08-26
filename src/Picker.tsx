@@ -25,16 +25,18 @@ import PickerTrigger from './PickerTrigger';
 import { isEqual } from './utils/dateUtil';
 import getDataOrAriaProps, { toArray } from './utils/miscUtil';
 import PanelContext, { ContextOperationRefProps } from './PanelContext';
-import { PickerMode } from './interface';
+import { PickerMode, RangeValue } from './interface';
 import { getDefaultFormat, getInputSize, elementsContains } from './utils/uiUtil';
 import usePickerInput from './hooks/usePickerInput';
 import useTextValueMapping from './hooks/useTextValueMapping';
 import useValueTexts from './hooks/useValueTexts';
 import useHoverValue from './hooks/useHoverValue';
 
-export interface PickerRefConfig {
+export interface PickerRefConfig<DateType> {
   focus: () => void;
   blur: () => void;
+  setValue: (value: DateType | null | RangeValue<DateType>) => void;
+  getValue: () => DateType | null | RangeValue<DateType>;
 }
 
 export interface PickerSharedProps<DateType> extends React.AriaAttributes {
@@ -80,7 +82,7 @@ export interface PickerSharedProps<DateType> extends React.AriaAttributes {
 
   // Internal
   /** @private Internal usage, do not use in production mode!!! */
-  pickerRef?: React.MutableRefObject<PickerRefConfig>;
+  pickerRef?: React.MutableRefObject<PickerRefConfig<DateType>>;
 
   // WAI-ARIA
   role?: string;
@@ -349,6 +351,12 @@ function InnerPicker<DateType>(props: PickerProps<DateType>) {
           inputRef.current.blur();
         }
       },
+      setValue: val => {
+        triggerChange(val as DateType | null);
+      },
+      getValue: () => {
+        return selectedValue;
+      },
     };
   }
 
@@ -516,7 +524,7 @@ function InnerPicker<DateType>(props: PickerProps<DateType>) {
 
 // Wrap with class component to enable pass generic with instance method
 class Picker<DateType> extends React.Component<PickerProps<DateType>> {
-  pickerRef = React.createRef<PickerRefConfig>();
+  pickerRef = React.createRef<PickerRefConfig<DateType>>();
 
   focus = () => {
     if (this.pickerRef.current) {
@@ -530,11 +538,24 @@ class Picker<DateType> extends React.Component<PickerProps<DateType>> {
     }
   };
 
+  setValue = val => {
+    if (this.pickerRef.current) {
+      this.pickerRef.current.setValue(val);
+    }
+  };
+
+  getValue = () => {
+    if (this.pickerRef.current) {
+      return this.pickerRef.current.getValue();
+    }
+    return null;
+  };
+
   render() {
     return (
       <InnerPicker<DateType>
         {...this.props}
-        pickerRef={this.pickerRef as React.MutableRefObject<PickerRefConfig>}
+        pickerRef={this.pickerRef as React.MutableRefObject<PickerRefConfig<DateType>>}
       />
     );
   }
