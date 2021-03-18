@@ -9,6 +9,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import { GenerateConfig } from '.';
 import 'dayjs/locale/zh-cn';
+import 'dayjs/locale/de';
 
 dayjs.extend(customParseFormat);
 dayjs.extend(advancedFormat);
