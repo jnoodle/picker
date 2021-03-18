@@ -9,6 +9,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import { GenerateConfig } from '.';
 import 'dayjs/locale/zh-cn';
+import 'dayjs/locale/de';
 
 dayjs.extend(customParseFormat);
 dayjs.extend(advancedFormat);
@@ -34,6 +35,7 @@ const localeMap: IlocaleMapObject = {
   en_US: 'en',
   zh_CN: 'zh-cn',
   zh_TW: 'zh-tw',
+  de_DE: 'de',
 };
 
 const parseLocale = (locale: string) => {
