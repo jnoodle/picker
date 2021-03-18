@@ -34,6 +34,7 @@ const localeMap: IlocaleMapObject = {
   en_US: 'en',
   zh_CN: 'zh-cn',
   zh_TW: 'zh-tw',
+  de_DE: 'de',
 };
 
 const parseLocale = (locale: string) => {
